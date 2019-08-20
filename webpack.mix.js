@@ -1,7 +1,17 @@
 module.exports = function (mix) {
-
+    const webpack = require('webpack');
     mix.setPublicPath('public/arbory');
-    mix.webpackConfig({resolve: {symlinks: false}});
+    mix.webpackConfig({
+        resolve: {
+            symlinks: false
+        },
+        plugins: [
+            new webpack.ProvidePlugin({
+                $: 'jquery',
+                jQuery: 'jquery'
+            })
+        ]
+    });
 
     mix.js(
         'vendor/arbory/arbory/resources/assets/js/controllers/*',
@@ -10,11 +20,6 @@ module.exports = function (mix) {
 
     mix.babel([
             'vendor/arbory/arbory/resources/assets/js/environment.js',
-            'vendor/components/jquery/jquery.min.js',
-            'vendor/components/jqueryui/jquery-ui.min.js',
-            'vendor/components/jquery-cookie/jquery.cookie.js',
-            'vendor/ckeditor/ckeditor/ckeditor.js',
-            'vendor/ckeditor/ckeditor/adapters/jquery.js',
             'vendor/arbory/arbory/resources/assets/js/include/**/*.js',
         ],
         'public/arbory/js/application.js'
@@ -34,11 +39,11 @@ module.exports = function (mix) {
         'vendor/arbory/arbory/resources/assets/stylesheets/controllers/sessions.scss',
         'css/controllers/'
     );
-
-    mix.copyDirectory(
-        'vendor/ckeditor/ckeditor/',
-        'public/arbory/ckeditor/'
-    );
+    //
+    // mix.copyDirectory(
+    //     'vendor/ckeditor/ckeditor/',
+    //     'public/arbory/ckeditor/'
+    // );
 
     mix.copyDirectory(
         'vendor/arbory/arbory/resources/assets/js/lib/ckeditor/plugins/',

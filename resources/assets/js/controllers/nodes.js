@@ -1,4 +1,4 @@
-
+require('jquery');
 const COOKIE_NAME_NODES = 'nodes';
 
 class Node {

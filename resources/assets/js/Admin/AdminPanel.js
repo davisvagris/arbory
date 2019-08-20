@@ -1,5 +1,5 @@
 import Navigator from "./Services/Navigator";
-
+import ckeditor from ''
 export default class AdminPanel {
     /**
      * @param {FieldRegistry} registry
