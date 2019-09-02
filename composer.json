@@ -2,6 +2,7 @@
     "name": "arbory/arbory",
     "description": "Administration interface for Laravel",
     "keywords": ["laravel", "admin", "cms", "arbory"],
+    "version": "1.0",
     "type": "library",
     "license": "MIT",
     "support": {
